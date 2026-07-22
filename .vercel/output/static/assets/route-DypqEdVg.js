@@ -1,1 +1,0 @@
-import{S as e,w as t}from"./index-Ds42Ap1b.js";var n=t(),r=()=>(0,n.jsx)(e,{});export{r as component};
