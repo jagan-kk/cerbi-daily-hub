@@ -8,10 +8,7 @@ export default defineConfig({
   resolve: { tsconfigPaths: true },
   plugins: [
     tanstackStart({ server: { entry: "server" } }),
-    nitro({
-      preset: "vercel",
-      noExternals: ["tslib"],
-    }),
+    nitro({ preset: "vercel" }),
     react(),
     tailwindcss(),
   ],
