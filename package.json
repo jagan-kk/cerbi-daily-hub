@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && node -e \"const fs=require('fs'),p=require('path');const src=p.join('.vercel','output','functions','__server.func','node_modules','tslib');const dst=p.join('.vercel','output','functions','__server.func','_libs','node_modules','tslib');if(fs.existsSync(src)){fs.cpSync(src,dst,{recursive:true});console.log('tslib copied to _libs/node_modules/');}\"",
+    "build": "vite build && node -e \"const fs=require('fs'),p=require('path');const dst=p.join('.vercel','output','functions','__server.func','_libs','node_modules','tslib');const src='node_modules/tslib';fs.cpSync(src,dst,{recursive:true});const pkgPath=p.join(dst,'package.json');const pkg=JSON.parse(fs.readFileSync(pkgPath,'utf8'));if(pkg.exports&&pkg.exports['.']&&pkg.exports['.'].import&&pkg.exports['.'].import.node){delete pkg.exports['.'].import.node;fs.writeFileSync(pkgPath,JSON.stringify(pkg,null,2)+'\\n');console.log('tslib copied + patched for direct ESM resolution');}\"",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
