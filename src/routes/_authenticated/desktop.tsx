@@ -8,16 +8,18 @@ import { NewsApp } from "@/components/apps/NewsApp";
 import { ChatApp } from "@/components/apps/ChatApp";
 import { DailyTrialApp } from "@/components/apps/DailyTrialApp";
 import { ShopApp } from "@/components/apps/ShopApp";
+import { MusicApp } from "@/components/apps/MusicApp";
 import { supabase } from "@/integrations/supabase/client";
 import { useNavigate } from "@tanstack/react-router";
 
-type AppKey = "news" | "chat" | "trial" | "shop";
+type AppKey = "news" | "chat" | "trial" | "shop" | "music";
 
-const APPS: { key: AppKey; title: string; icon: "tome" | "tavern" | "scroll" | "coin" }[] = [
+const APPS: { key: AppKey; title: string; icon: "tome" | "tavern" | "scroll" | "coin" | "music" }[] = [
   { key: "news", title: "News Tome", icon: "tome" },
   { key: "chat", title: "Chat Tavern", icon: "tavern" },
   { key: "trial", title: "Daily Trial", icon: "scroll" },
   { key: "shop", title: "Shop of Wares", icon: "coin" },
+  { key: "music", title: "Music Player", icon: "music" },
 ];
 
 export const Route = createFileRoute("/_authenticated/desktop")({
@@ -35,7 +37,7 @@ const FONT_STYLES: Record<string, { display: string; body: string }> = {
 function Desktop() {
   const { data: profile, isLoading } = useProfile();
   const [open, setOpen] = useState<Set<AppKey>>(new Set());
-  const [z, setZ] = useState<Record<AppKey, number>>({ news: 1, chat: 1, trial: 1, shop: 1 });
+  const [z, setZ] = useState<Record<AppKey, number>>({ news: 1, chat: 1, trial: 1, shop: 1, music: 1 });
   const [top, setTop] = useState(2);
   const navigate = useNavigate();
 
@@ -127,6 +129,7 @@ function Desktop() {
             {a.key === "chat" && <ChatApp profile={profile} />}
             {a.key === "trial" && <DailyTrialApp profile={profile} />}
             {a.key === "shop" && <ShopApp profile={profile} />}
+            {a.key === "music" && <MusicApp profile={profile} />}
           </Window>
         ) : null,
       )}
