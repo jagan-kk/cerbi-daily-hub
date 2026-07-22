@@ -111,7 +111,7 @@ export function MusicApp({ profile }: { profile: Profile }) {
     };
   }, [accessToken, volume]);
 
-  const { data: playlists, refetch: refetchPlaylists } = useQuery({
+  const { data: playlists, error: playlistsError, refetch: refetchPlaylists } = useQuery({
     queryKey: ["spotify-playlists"],
     queryFn: () => fetchMyPlaylists(),
     enabled: !!connected,
@@ -245,7 +245,12 @@ export function MusicApp({ profile }: { profile: Profile }) {
                 SYNC TO SHOWCASE
               </button>
             </div>
-            {!playlists?.length && (
+            {playlistsError && (
+              <div className="font-body text-base" style={{ color: "var(--color-blood)" }}>
+                Error: {playlistsError.message}
+              </div>
+            )}
+            {!playlistsError && !playlists?.length && (
               <div className="font-body text-lg" style={{ color: "var(--color-muted-foreground)" }}>
                 No playlists found.
               </div>
