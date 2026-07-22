@@ -4,7 +4,7 @@ import { t as supabase } from "./client-B7SjN-VM.mjs";
 import { c as HeadContent, d as Outlet, f as lazyRouteComponent, h as Link, j as redirect, m as createRootRouteWithContext, p as createFileRoute, s as Scripts, u as createRouter, v as useRouter } from "../_libs/@tanstack/react-router+[...].mjs";
 import { t as Toaster } from "../_libs/sonner.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-DFkUw3m2.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-muZVX4uH.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var styles_default = "/assets/styles-CC_AnA7d.css";
@@ -164,11 +164,12 @@ var Route$5 = createFileRoute("/")({ beforeLoad: () => {
 } });
 var $$splitComponentImporter$4 = () => import("./route-Di7iQBCH.mjs");
 var Route$4 = createFileRoute("/_authenticated")({
-	ssr: false,
 	beforeLoad: async () => {
-		const { data, error } = await supabase.auth.getUser();
-		if (error || !data.user) throw redirect({ to: "/auth" });
-		return { user: data.user };
+		if (typeof window !== "undefined") {
+			const { data } = await supabase.auth.getUser();
+			if (!data?.user) throw redirect({ to: "/auth" });
+			return { user: data.user };
+		}
 	},
 	component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
@@ -185,7 +186,7 @@ var Route$2 = createFileRoute("/_authenticated/desktop")({
 	head: () => ({ meta: [{ title: "Cerbi Desktop" }] }),
 	component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-var $$splitComponentImporter$1 = () => import("./auth-BGSBQl5E.mjs");
+var $$splitComponentImporter$1 = () => import("./auth-BkhPA6qO.mjs");
 var Route$1 = createFileRoute("/api/spotify/auth")({
 	ssr: false,
 	component: lazyRouteComponent($$splitComponentImporter$1, "component")
