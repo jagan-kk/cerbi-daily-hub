@@ -102,3 +102,6 @@ VITE_SPOTIFY_REDIRECT_URI="${SPOTIFY_REDIRECT_URI}"
 # APIs
 OPENROUTER_API_KEY="sk-or-v1-..."
 GNEWS_API_KEY="your-gnews-key"
+```
+### Link
+https://cerbi-daily-hub.vercel.app
