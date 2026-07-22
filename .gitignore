@@ -32,4 +32,6 @@ dist-ssr
 *.sw?
 
 
+.vercel/
+bun.lock
 .env
