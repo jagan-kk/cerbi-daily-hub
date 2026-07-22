@@ -1,0 +1,1 @@
+import{S as e,w as t}from"./index-DAiYFB_D.js";var n=t(),r=()=>(0,n.jsx)(e,{});export{r as component};
