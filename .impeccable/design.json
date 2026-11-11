@@ -1,0 +1,79 @@
+{
+  "project": "Cerbi",
+  "version": "1.0.0",
+  "mode": { "shell": "Experience", "apps": "Operate" },
+  "colorStrategy": "Committed dark",
+  "physicalScene": "Dim room, screen as main light, always-dark game OS",
+  "tokens": {
+    "brand": {
+      "desk": "oklch(0.55 0.11 200)",
+      "desk-2": "oklch(0.42 0.09 200)",
+      "neon": "oklch(0.78 0.19 320)",
+      "gold": "oklch(0.85 0.17 90)",
+      "blood": "oklch(0.62 0.22 25)"
+    },
+    "surface": {
+      "background": "oklch(0.16 0.03 260)",
+      "foreground": "oklch(0.96 0.01 240)",
+      "window": "oklch(0.24 0.04 260)",
+      "window-foreground": "oklch(0.96 0.01 240)",
+      "window-bar": "oklch(0.42 0.14 280)",
+      "window-bar-foreground": "oklch(0.99 0.01 240)",
+      "card": "oklch(0.22 0.04 260)",
+      "card-foreground": "oklch(0.96 0.01 240)",
+      "primary": "oklch(0.78 0.19 320)",
+      "primary-foreground": "oklch(0.14 0.03 260)",
+      "secondary": "oklch(0.32 0.05 260)",
+      "secondary-foreground": "oklch(0.96 0.01 240)",
+      "muted": "oklch(0.30 0.03 260)",
+      "muted-foreground": "oklch(0.75 0.03 260)",
+      "accent": "oklch(0.85 0.17 90)",
+      "accent-foreground": "oklch(0.14 0.03 260)",
+      "destructive": "oklch(0.62 0.22 25)",
+      "destructive-foreground": "oklch(0.98 0.01 240)",
+      "border": "oklch(0.14 0.03 260)",
+      "input": "oklch(0.28 0.04 260)",
+      "ring": "oklch(0.78 0.19 320)"
+    },
+    "bevel": {
+      "outer-border": "oklch(0.08 0.02 260)",
+      "inset-highlight": "oklch(0.35 0.06 280)",
+      "inset-shadow": "oklch(0.15 0.03 260)",
+      "drop-shadow": "oklch(0 0 0 / 0.6)"
+    }
+  },
+  "typography": {
+    "display": "'Press Start 2P', system-ui, monospace",
+    "body": "'VT323', 'Courier New', monospace",
+    "scale": {
+      "micro": "9px",
+      "small": "10px",
+      "label": "11px",
+      "body": "18px",
+      "heading": "20px",
+      "display": "24px",
+      "giant": "48px"
+    },
+    "lineHeight": { "display": 1.4, "body": 1.6 },
+    "letterSpacing": { "display": "0.02em", "body": "0" },
+    "fontSmoothing": "none",
+    "imageRendering": "pixelated"
+  },
+  "spacing": { "base": "4px", "units": { "1": "4px", "2": "8px", "3": "12px", "4": "16px", "6": "24px", "8": "32px" } },
+  "border": { "width": "3px", "radius": "0" },
+  "motion": {
+    "duration-fast": "60ms",
+    "duration-normal": "80ms",
+    "easing-pixel": "steps(4)",
+    "animations": ["pixel-pulse", "pixel-blink"]
+  },
+  "components": ["pixel-window", "pixel-btn", "pixel-input", "pixel-card", "pixel-tile", "pixel-badge"],
+  "wallpapers": ["wp-grid-teal", "wp-grid-purple", "wp-stars", "wp-dungeon", "wp-sunset"],
+  "accessibility": {
+    "contrast": "4.5:1 minimum",
+    "focusRing": "2px solid var(--color-ring), outline-offset 2px",
+    "touchTarget": "44x44px minimum",
+    "reducedMotion": "disabled pulse/blink, instant state"
+  },
+  "banned": ["rounded-corners", "gray-on-gray", "raw-hex-in-components", "emoji-icons", "stock-shadcn-without-pixel-override", "hover-only-interactions"]
+}
